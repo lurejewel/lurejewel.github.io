@@ -14,13 +14,13 @@
       <header class="hero">
         <div class="hero-card">
           <div class="hero-text">
-            <p class="eyebrow">PhD Student - Robotics and AI</p>
             <h1>Wei JIN | 靳葳</h1>
             <p class="bio">
-              I am a Ph.D. student at Peking University. My work focuses on long-horizon
-              manipulation, motion planning, and embodied intelligence. I build systems
-              that combine geometry, learning, and control to make robots more capable
-              in the real world.
+              I am a Ph.D. student at Peking University working at the intersection of
+              biomechanics and assistive robotics. My research develops neuromusculoskeletal
+              and human-exoskeleton models, predictive simulation, and optimization to design
+              wearable devices for gait assistance. I also study control strategies and
+              experimental evaluation to reduce joint loading and improve walking performance.
             </p>
             <div class="links">
               <a href="mailto:wjin24@stu.pku.edu.cn">Email</a>
@@ -33,9 +33,7 @@
             </div>
           </div>
           <div class="hero-photo">
-            <div class="avatar">
-              <span>Photo</span>
-            </div>
+            <img class="avatar" src="images/myphoto/myphoto.jpg" alt="Wei Jin portrait" loading="lazy">
           </div>
         </div>
       </header>
@@ -43,9 +41,10 @@
       <section id="research" class="section" style="--delay: 0.05s;">
         <h2>Research Interests</h2>
         <p>
-          My research centers on mobile manipulation and long-horizon autonomy.
-          I am particularly interested in learning-based planning, contact-rich
-          interaction, and safe deployment of robots in human environments.
+          My research interests include musculoskeletal modeling, human-machine coupling
+          dynamics, and simulation-driven design of wearable robots. I am interested in
+          biomechanics-driven optimization, exoskeleton control, and motion analysis for
+          validation and evaluation.
         </p>
       </section>
 
@@ -232,11 +231,17 @@
       </section>
 
       <section id="awards" class="section" style="--delay: 0.3s;">
-        <h2>Awards</h2>
+        <h2>Selected Awards</h2>
         <ul class="simple-list">
-          <li>Best Paper Finalist, IROS 2025</li>
-          <li>Outstanding Graduate Student Award, 2023</li>
-          <li>Scholarship of Excellence, 2021</li>
+          <li>Outstanding Graduate, Fudan University, 2024</li>
+          <li>Academic Excellence Scholarship, Fudan University, 2023 & 2024</li>
+          <li>Best Oral Presentation Award, ICDVC 2023</li>
+          <li>Outstanding Student, Fudan University, 2022</li>
+          <li>Outstanding Graduate, Nankai University, 2021</li>
+          <li>Gongneng Scholarship (1 recipient in cohort), Nankai University, 2021</li>
+          <li>Tianjin Government Scholarship (1 recipient in cohort), 2019</li>
+          <li>National Second Prize in the China Undergraduate Mathematical Contest in Modeling (Top 3.8%), 2019</li>
+          <li>Southwest Associated University Scholarship (1 recipient in college), 2018</li>
         </ul>
       </section>
 
@@ -249,8 +254,49 @@
 
       <footer class="site-footer">
         <p>Copyright 2026 Wei JIN. All rights reserved.</p>
-        <p>Template adapted from Jon Barron.</p>
+        <p>Template adapted from <a href="https://github.com/jonbarron/jonbarron.github.io">Jon Barron</a>.</p>
       </footer>
     </div>
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="lightbox-backdrop"></div>
+      <div class="lightbox-content" role="document">
+        <img class="lightbox-image" src="" alt="">
+        <p class="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const lightbox = document.getElementById("lightbox");
+        if (!lightbox) return;
+        const lightboxImage = lightbox.querySelector(".lightbox-image");
+        const lightboxCaption = lightbox.querySelector(".lightbox-caption");
+        const lightboxBackdrop = lightbox.querySelector(".lightbox-backdrop");
+
+        function openLightbox(img) {
+          lightboxImage.src = img.src;
+          lightboxImage.alt = img.alt || "";
+          lightboxCaption.textContent = img.alt || "";
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.classList.add("lightbox-open");
+        }
+
+        function closeLightbox() {
+          lightbox.classList.remove("is-open");
+          lightbox.setAttribute("aria-hidden", "true");
+          lightboxImage.src = "";
+          lightboxImage.alt = "";
+          lightboxCaption.textContent = "";
+          document.body.classList.remove("lightbox-open");
+        }
+
+        document.querySelectorAll(".pub-image").forEach((img) => {
+          img.addEventListener("click", () => openLightbox(img));
+        });
+
+        lightboxBackdrop.addEventListener("click", closeLightbox);
+      })();
+    </script>
   </body>
 </html>
